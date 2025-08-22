@@ -20,18 +20,16 @@ void ToppingGroup::add(PizzaComponent* component) {
 }
 
 string ToppingGroup::getName() const {
-	stringstream output(name);
-	output << "(";
-	for (int i =0; i < toppings.size(); i ++){
-		output << toppings[i]->getName();
-		if (i < toppings.size() - 1) {
-			output << ", ";
-		}
-		
-	}
-	output << ")";
-	return output.str(); // Return the name of the topping group with all toppings
+	string output = name + " (";  
+    for (int i = 0; i < toppings.size(); i++) {
+        output += toppings[i]->getName();
+        if (i < toppings.size() - 1) {
+            output += ", ";
+        }
+    }
 
+    output += ")";
+    return output;
 }
 
 double ToppingGroup::getPrice() const {

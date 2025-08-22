@@ -1,6 +1,3 @@
-#include <exception>
-using namespace std;
-
 #include "ToppingGroup.h"
 #include "PizzaComponent.h"
 #include <sstream>
@@ -11,16 +8,17 @@ ToppingGroup::ToppingGroup(string name){
 }
 ToppingGroup::~ToppingGroup() {
 	// ripped this logic off GG idk if this works
-	for (size_t i = 0; i < toppings.size(); i++) {
+	for (int i = 0; i < toppings.size(); i++) {
             delete toppings[i];
     }
     toppings.clear();
-	
 }
+
 // I changed this function to take a PizzaComponent pointer instead of a value
 void ToppingGroup::add(PizzaComponent* component) {
 	toppings.push_back(component);
 }
+
 string ToppingGroup::getName() const {
 	stringstream output(name);
 	output << "(";
@@ -35,6 +33,7 @@ string ToppingGroup::getName() const {
 	return output.str(); // Return the name of the topping group with all toppings
 
 }
+
 double ToppingGroup::getPrice() const {
 	double total = 0.0;
     for (int i = 0; i < toppings.size(); i++) {

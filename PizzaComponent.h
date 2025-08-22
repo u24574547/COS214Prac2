@@ -1,4 +1,3 @@
-
 #ifndef __PizzaComponent_h__
 #define __PizzaComponent_h__
 
@@ -6,8 +5,6 @@
 // #include "BasePizza.h"
 
 // class ToppingGroup;
-class BasePizza;
-class PizzaComponent;
 #include <string>
 using namespace std;
 

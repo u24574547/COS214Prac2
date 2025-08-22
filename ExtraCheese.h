@@ -1,13 +1,7 @@
-#include <exception>
-using namespace std;
-
 #ifndef __ExtraCheese_h__
 #define __ExtraCheese_h__
-
 #include "PizzaDecorator.h"
-
-// class PizzaDecorator;
-class ExtraCheese;
+using namespace std;
 
 class ExtraCheese: public PizzaDecorator
 {

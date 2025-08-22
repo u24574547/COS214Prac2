@@ -1,6 +1,4 @@
-
 #include "Topping.h"
-#include "PizzaComponent.h"
 
 Topping::Topping(double price, string name) {
     this->price = price;

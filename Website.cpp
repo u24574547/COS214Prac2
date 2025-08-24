@@ -1,6 +1,6 @@
 #include "Website.h"
 
 void Website::update(string aMessage) {
-	throw "Not yet implemented";
+	cout<<"Website received the following message: "<<aMessage<<endl;
 }
 

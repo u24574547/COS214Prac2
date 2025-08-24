@@ -6,6 +6,8 @@ using namespace std;
 
 class Pizza {
 public:
+	Pizza();
+	virtual ~Pizza();
 	virtual double getPrice() const = 0;
 
 	virtual string getName() const = 0;

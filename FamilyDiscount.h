@@ -7,7 +7,7 @@ class FamilyDiscount: public DiscountStrategy
 {
 	private:
 		double discountRate;
-		bool semenSampled;
+		//bool semenSampled;
 
 	public: 
 		FamilyDiscount(double discount = 0.15);

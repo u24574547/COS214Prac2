@@ -6,4 +6,3 @@ double StuffedCrust::getPrice() const {
 string StuffedCrust::getName() const {
 	return pizza->getName() + " with Stuffed Crust";
 }
-

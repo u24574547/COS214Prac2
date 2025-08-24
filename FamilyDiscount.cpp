@@ -1,5 +1,9 @@
 #include "FamilyDiscount.h"
 
+FamilyDiscount::FamilyDiscount(double discount) {
+	discountRate = discount;
+}
+
 double FamilyDiscount::applyDiscount(double total, int numPizza) const {
 	// Apply family discount if the number of pizzas is greater than 2? Or how else do we do it
 	if (numPizza > 2) {

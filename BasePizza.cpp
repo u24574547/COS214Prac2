@@ -1,6 +1,6 @@
 #include "BasePizza.h"
 
-// All pizza i am assuming have cheese suace and dough
+// All of our pizza's have assuming have cheese, space and dough
 BasePizza::BasePizza(string name, PizzaComponent* toppings) {
 	this->name = name;
 	this->toppings = toppings;
@@ -9,7 +9,7 @@ BasePizza::BasePizza(string name, PizzaComponent* toppings) {
 BasePizza::~BasePizza() {
 	if (toppings != NULL) {
 		delete toppings;
-		toppings = NULL; 
+		toppings = NULL;
 	}
 }
 

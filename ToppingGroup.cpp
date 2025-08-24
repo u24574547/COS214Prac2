@@ -1,7 +1,5 @@
 #include "ToppingGroup.h"
-#include "PizzaComponent.h"
-#include <sstream>
-#include <vector>
+
 // Should we stop them from adding mutltiple of the same toppings?
 ToppingGroup::ToppingGroup(string name){
 	this->name = name;

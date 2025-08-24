@@ -1,13 +1,7 @@
-#include <exception>
-using namespace std;
-
 #ifndef __FamilyDiscount_h__
 #define __FamilyDiscount_h__
 
 #include "DiscountStrategy.h"
-
-// class DiscountStrategy;
-class FamilyDiscount;
 
 class FamilyDiscount: public DiscountStrategy
 {
@@ -17,7 +11,7 @@ class FamilyDiscount: public DiscountStrategy
 
 	public: 
 		FamilyDiscount(double discount = 0.15);
-    virtual ~FamilyDiscount() {}
+		virtual ~FamilyDiscount() {}
 
     virtual double applyDiscount(double total, int numPizza) const override;
 };

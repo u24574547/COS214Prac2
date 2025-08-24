@@ -1,10 +1,6 @@
-#include <exception>
-using namespace std;
-
 #include "Website.h"
-#include "Observer.h"
 
-void Website::update(String aMessage) {
+void Website::update(string aMessage) {
 	throw "Not yet implemented";
 }
 

@@ -1,6 +1,3 @@
-#include <exception>
-using namespace std;
-
 #ifndef __Website_h__
 #define __Website_h__
 
@@ -12,7 +9,7 @@ class Website;
 class Website: public Observer
 {
 
-	public: void update(String aMessage);
+	public: void update(string aMessage);
 };
 
 #endif

@@ -1,8 +1,4 @@
-#include <exception>
-using namespace std;
-
 #include "FamilyDiscount.h"
-#include "DiscountStrategy.h"
 
 double FamilyDiscount::applyDiscount(double total, int numPizza) const {
 	// Apply family discount if the number of pizzas is greater than 2? Or how else do we do it

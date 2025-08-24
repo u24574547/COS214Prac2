@@ -1,13 +1,11 @@
-#include <exception>
-using namespace std;
-
 #include "BulkDiscount.h"
-#include "DiscountStrategy.h"
+
 // We create different dicounts for different threshholds of pizzas?
 BulkDiscount::BulkDiscount(double rate, int required){
 	discountRate = rate;
 	requiredPizzas = required;
 }
+
 double BulkDiscount::applyDiscount(double total, int numPizza) const {
 	if (numPizza >= requiredPizzas) {
 		return total * (1.0 - discountRate);

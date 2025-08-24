@@ -1,10 +1,5 @@
 #ifndef __PizzaComponent_h__
 #define __PizzaComponent_h__
-
-// #include "ToppingGroup.h"
-// #include "BasePizza.h"
-
-// class ToppingGroup;
 #include <string>
 using namespace std;
 

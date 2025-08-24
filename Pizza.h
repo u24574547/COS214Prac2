@@ -1,20 +1,16 @@
 #ifndef __Pizza_h__
 #define __Pizza_h__
-using namespace std;
-// #include "PizzaDecorator.h"
-// #include "Menus.h"
 #include <string>
 using namespace std;
+#include <iostream>
 
-class Pizza
-{
-	public: 
-		
-		virtual double getPrice()const = 0;
+class Pizza {
+public:
+	virtual double getPrice() const = 0;
 
-		virtual string getName()const = 0;
+	virtual string getName() const = 0;
 
-		void printPizza() const;
+	void printPizza() const;
 };
 
 #endif

@@ -1,6 +1,3 @@
-#include <exception>
-using namespace std;
-
 #ifndef __DiscountStrategy_h__
 #define __DiscountStrategy_h__
 

@@ -1,29 +1,23 @@
-#include <exception>
-#include <vector>
-using namespace std;
-
 #ifndef __Order_h__
 #define __Order_h__
 
-// #include "Pizza.h"
+#include "Pizza.h"
 #include "DiscountStrategy.h"
+using namespace std;
+#include <vector>
 
-class Pizza;
-class DiscountStrategy;
-class Order;
+class Order {
+private:
+	vector<Pizza *> _pizzas;
+	DiscountStrategy *_discount;
 
-class Order
-{
-	private: vector<Pizza*> _pizzas;
-	private: DiscountStrategy _discount;
+	void addPizza(Pizza *aPizza);
 
-	public: void addPizza(Pizza* aPizza);
+	void removePizza(int aPizzaNo);
 
-	public: void removePizza(int aPizzaNo);
+	string toString();
 
-	public: String toString();
-
-	public: void setDiscountStrategy(int aDiscount);
+	void setDiscountStrategy(int aDiscount);
 };
 
 #endif

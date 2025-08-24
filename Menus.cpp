@@ -1,28 +1,23 @@
-#include <exception>
-using namespace std;
-
 #include "Menus.h"
-#include "Observer.h"
-#include "Pizza.h"
 
-void Menus::addObserver(Observer* aObserver) {
+void Menus::addObserver(Observer* anObserver) {
 	throw "Not yet implemented";
 }
 
-void Menus::removeObserver(Observer* aObserver) {
+void Menus::removeObserver(Observer* anObserver) {
 	throw "Not yet implemented";
 }
 
-void Menus::addPizza(Pizza aPizza) {
+void Menus::addPizza(Pizza* aPizza) {
 	throw "Not yet implemented";
 }
 
-void Menus::removePizza(Pizza aPizza) {
+void Menus::removePizza(Pizza* aPizza) {
 	throw "Not yet implemented";
 }
 
 
-Pizza* Menus::getCustomPizza(String aPizzaName) {
+Pizza* Menus::getCustomPizza(string aPizzaName) {
 	throw "Not yet implemented";
 }
 

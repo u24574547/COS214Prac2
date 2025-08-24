@@ -1,10 +1,6 @@
-#include <exception>
-using namespace std;
-
 #include "Customer.h"
-#include "Observer.h"
 
-void Customer::update(String aMessage) {
+void Customer::update(string aMessage) {
 	throw "Not yet implemented";
 }
 

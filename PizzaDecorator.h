@@ -1,7 +1,6 @@
 #ifndef __PizzaDecorator_h__
 #define __PizzaDecorator_h__
 #include "Pizza.h"
-using namespace std;
 
 class PizzaDecorator: public Pizza
 {

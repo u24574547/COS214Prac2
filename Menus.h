@@ -1,34 +1,28 @@
-#include <exception>
-using namespace std;
-
 #ifndef __Menus_h__
 #define __Menus_h__
+#include <vector>
 
-// #include "Observer.h"
+#include "Observer.h"
 #include "Pizza.h"
 
-class Observer;
-class Pizza;
-class Menus;
+class Menus {
+private:
+	vector<Observer*> _observers;
+	vector<Pizza*> _pizzas;
 
-__abstract class Menus
-{
-	private: Observer* _observers;
-	private: Pizza* _pizzas;
-	public: Observer* _unnamed_Observer_;
-	public: Pizza* _unnamed_Pizza_;
+public:
 
-	public: void addObserver(Observer* aObserver);
+	void addObserver(Observer *anObserver);
 
-	public: void removeObserver(Observer* aObserver);
+	void removeObserver(Observer *anObserver);
 
-	public: void addPizza(Pizza aPizza);
+	void addPizza(Pizza *aPizza);
 
-	public: void removePizza(Pizza aPizza);
+	void removePizza(Pizza *aPizza);
 
-	public: virtual void notifyObservers(String aMessage) = 0;
+	virtual void notifyObservers(string aMessage) = 0;
 
-	public: Pizza* getCustomPizza(String aPizzaName);
+	Pizza *getCustomPizza(string aPizzaName);
 };
 
 #endif

@@ -1,9 +1,6 @@
-#include <exception>
-using namespace std;
-
 #ifndef __BulkDiscount_h__
 #define __BulkDiscount_h__
-
+using namespace std;
 #include "DiscountStrategy.h"
 
 

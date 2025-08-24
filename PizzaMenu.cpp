@@ -1,10 +1,6 @@
-#include <exception>
-using namespace std;
-
 #include "PizzaMenu.h"
-#include "Menus.h"
 
-void PizzaMenu::notifyObservers(String aMessage) {
+void PizzaMenu::notifyObservers(string aMessage) {
 	throw "Not yet implemented";
 }
 

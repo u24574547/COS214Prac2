@@ -1,15 +1,9 @@
-#include <exception>
-using namespace std;
-
 #ifndef __BasePizza_h__
 #define __BasePizza_h__
 
 #include "PizzaComponent.h"
 #include "Pizza.h"
-
-class PizzaComponent;
-// class Pizza;
-class BasePizza;
+using namespace std;
 
 class BasePizza: public Pizza
 {

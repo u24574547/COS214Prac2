@@ -11,6 +11,9 @@ private:
 	vector<Pizza *> _pizzas;
 	DiscountStrategy *_discount;
 
+public:
+	Order(int discountStrategy=0);
+	virtual ~Order();
 	void addPizza(Pizza *aPizza);
 
 	void removePizza(int aPizzaNo);

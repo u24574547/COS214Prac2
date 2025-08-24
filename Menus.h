@@ -11,6 +11,8 @@ private:
 	vector<Pizza*> _pizzas;
 
 public:
+	Menus();
+	virtual ~Menus();
 
 	void addObserver(Observer *anObserver);
 

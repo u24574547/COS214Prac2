@@ -5,8 +5,10 @@
 
 class PizzaMenu: public Menus
 {
-
-	public: void notifyObservers(string aMessage);
+	public:
+	PizzaMenu();
+	~PizzaMenu();
+	void notifyObservers(string aMessage);
 };
 
 #endif

@@ -6,3 +6,6 @@ double StuffedCrust::getPrice() const {
 string StuffedCrust::getName() const {
 	return pizza->getName() + " with Stuffed Crust";
 }
+Pizza* StuffedCrust::clone() const{
+	return new StuffedCrust(pizza->clone());
+}

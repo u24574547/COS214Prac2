@@ -13,6 +13,7 @@ public:
 	virtual string getName() const = 0;
 
 	void printPizza() const;
+	virtual Pizza* clone() const = 0;
 };
 
 #endif

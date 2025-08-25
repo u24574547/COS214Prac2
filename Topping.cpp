@@ -13,3 +13,6 @@ string Topping::getName() const {
 double Topping::getPrice() const {
     return price;
 }
+PizzaComponent* Topping::clone() const {
+    return new Topping(price, name);
+}

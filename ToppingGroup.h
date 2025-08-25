@@ -15,6 +15,7 @@ class ToppingGroup: public PizzaComponent
 		void add(PizzaComponent* component);
 		virtual string getName() const override;
 		virtual double getPrice() const override;
+		virtual PizzaComponent* clone() const override;
 };
 
 #endif

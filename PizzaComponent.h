@@ -15,6 +15,7 @@ class PizzaComponent
 		virtual string getName()const = 0;
 
 		virtual double getPrice()const = 0;
+		virtual PizzaComponent* clone() const = 0;
 };
 
 #endif

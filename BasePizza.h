@@ -20,6 +20,7 @@ class BasePizza: public Pizza
 
 		BasePizza(string name, PizzaComponent* toppings);
 		virtual ~BasePizza();
+		virtual Pizza* clone() const override;
 };
 
 #endif

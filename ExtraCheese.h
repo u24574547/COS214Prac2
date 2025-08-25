@@ -12,6 +12,7 @@ class ExtraCheese: public PizzaDecorator
 		virtual ~ExtraCheese() {}
 		virtual double getPrice()const;
 		virtual string getName()const;
+		virtual Pizza* clone() const override;
 };
 
 #endif

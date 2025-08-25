@@ -38,3 +38,11 @@ double ToppingGroup::getPrice() const {
     return total;
 }
 
+ToppingGroup::PizzaComponent* ToppingGroup::clone() const {
+    ToppingGroup* copy = new ToppingGroup(this->name);
+    for (size_t i = 0; i < toppings.size(); i++) {
+        copy->add(toppings[i]->clone()); // deep copy
+    }
+    return copy;
+}
+

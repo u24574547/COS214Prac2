@@ -27,6 +27,17 @@ string BasePizza::getName() const {
 	}
 	return name; // Return just the name if no toppings are set
 	// Or should i return margarita pizza?
+	
+}
+
+Pizza* BasePizza::clone() const {
+	if(toppings == NULL) {
+		return new BasePizza(name, NULL);
+	}
+	else{
+		return new BasePizza(name, toppings->clone());
+	}
+	
 }
 
 

@@ -8,3 +8,6 @@ string ExtraCheese::getName() const {
 	return pizza->getName() + " with Extra Cheese";
 }
 
+Pizza* ExtraCheese::clone() const{
+	return new ExtraCheese(pizza->clone());
+}

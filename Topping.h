@@ -2,7 +2,7 @@
 #define __Topping_h__
 #include "PizzaComponent.h"
 
-// I just made it simple assuming that we dont hard code the toppings and we create them ourselves
+// I dont think this class needs to implement the cline function right?
 class Topping: public PizzaComponent
 {
     public:
@@ -10,6 +10,8 @@ class Topping: public PizzaComponent
         ~Topping() override;
         virtual string getName() const override;
         virtual double getPrice() const override;
+        
+        virtual PizzaComponent* clone() const override;
 };
 
 #endif

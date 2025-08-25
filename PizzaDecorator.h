@@ -12,6 +12,7 @@ class PizzaDecorator: public Pizza
 		virtual double getPrice()const = 0;
 
 		virtual string getName()const = 0;
+		virtual Pizza* clone() const = 0;
 };
 
 #endif

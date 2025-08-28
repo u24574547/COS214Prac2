@@ -12,5 +12,9 @@ double BulkDiscount::applyDiscount(double total, int numPizza) const {
 	}
 	return total; // No discount applied if the number of pizzas is less than required
 }
+
+std::string BulkDiscount::getType() {
+	return "BulkDiscount";
+}
 // I'm thinking we have an array of these and when the customer ends their session we return the highest offered discount from the array?
 // In the prac we are supposed to hard code it but i Dont know if you want to do this

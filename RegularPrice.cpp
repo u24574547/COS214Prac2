@@ -5,3 +5,6 @@ double RegularPrice::applyDiscount(double total, int numPizza) const {
 	return total;
 }
 
+std::string RegularPrice::getType() {
+	return "RegularPrice";
+}

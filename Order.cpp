@@ -18,7 +18,7 @@ Order::~Order() {
 
 void Order::addPizza(Pizza* aPizza) {
 	//make a clone.
-	throw "Not yet implemented";
+	_pizzas.push_back(aPizza->clone());
 }
 
 void Order::removePizza(int aPizzaNo) {
@@ -35,7 +35,18 @@ void Order::removePizza(int aPizzaNo) {
 }
 
 string Order::toString() {
-	throw "Not yet implemented";
+	string ans = "Pizzas: \n";
+	double totalPrice = 0.0;
+	vector<Pizza *>::iterator it;
+	for (it = _pizzas.begin(); it != _pizzas.end(); ++it) {
+		ans+=(*it.base())->toString()+"\n";
+		totalPrice+=(*it.base())->getPrice();
+	}
+
+	//ans+="Price before discount: "+to_string(totalPrice)+"\n";
+	ans+="Discount Strategy:" + _discount->getType()+"\n";
+	ans+="Total Price: "+to_string(_discount->applyDiscount(totalPrice, _pizzas.size()))+"\n";
+	return ans;
 }
 
 void Order::setDiscountStrategy(int aDiscount) {

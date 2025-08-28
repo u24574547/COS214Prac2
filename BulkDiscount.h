@@ -12,6 +12,7 @@ class BulkDiscount: public DiscountStrategy
 	public: 
 		BulkDiscount(double rate, int required);
 		virtual ~BulkDiscount() {}
+		string getType();
 		virtual double applyDiscount(double total, int numPizza) const override;
 };
 

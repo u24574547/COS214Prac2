@@ -11,3 +11,7 @@ double FamilyDiscount::applyDiscount(double total, int numPizza) const {
 	}
 	return total; // No discount applied if the number of pizzas is 2 or less
 }
+
+std::string FamilyDiscount::getType() {
+	return "FamilyDiscount";
+}

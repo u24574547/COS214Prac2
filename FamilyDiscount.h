@@ -3,16 +3,19 @@
 
 #include "DiscountStrategy.h"
 
-class FamilyDiscount: public DiscountStrategy
-{
-	private:
-		double discountRate;
-		//bool semenSampled;
+class FamilyDiscount : public DiscountStrategy {
+private:
+	double discountRate;
+	//bool semenSampled;
 
-	public: 
-		FamilyDiscount(double discount = 0.15);
-		virtual ~FamilyDiscount() {}
+public:
+	FamilyDiscount(double discount = 0.15);
 
-    virtual double applyDiscount(double total, int numPizza) const override;
+	virtual ~FamilyDiscount() {
+	}
+
+	std::string getType();
+
+	virtual double applyDiscount(double total, int numPizza) const override;
 };
 #endif

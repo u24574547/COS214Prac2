@@ -6,7 +6,7 @@
 #include "Pizza.h"
 
 class Menus {
-private:
+protected:
 	vector<Observer*> _observers;
 	vector<Pizza*> _pizzas;
 

@@ -2,10 +2,10 @@
 #define __DiscountStrategy_h__
 #include <string>
 
-class DiscountStrategy
-{
+class DiscountStrategy{
 
-	public: 
+	public:
+		DiscountStrategy();
 		virtual ~DiscountStrategy();
 		virtual double applyDiscount(double total, int numPizza) const = 0;
 		virtual std::string getType()=0;

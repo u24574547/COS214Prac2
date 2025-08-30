@@ -1,15 +1,15 @@
 #ifndef __Website_h__
 #define __Website_h__
-
+using namespace std;
+#include <string>
+#include <iostream>
 #include "Observer.h"
-
-// class Observer;
-class Website;
 
 class Website: public Observer
 {
-
-	public: void update(string aMessage);
+	public:
+	Website(Menus* menu);
+	void update(string aMessage);
 };
 
 #endif

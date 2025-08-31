@@ -5,5 +5,4 @@ Observer::Observer(Menus *menu) {
 }
 
 Observer::~Observer() {
-    delete _unnamed_Menus_;
 }

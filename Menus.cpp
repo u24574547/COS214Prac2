@@ -35,6 +35,7 @@ void Menus::removeObserver(Observer* anObserver) {
 
 void Menus::addPizza(Pizza* aPizza) {
 	_pizzas.push_back(aPizza);
+	notifyObservers("Added a new pizza.");
 }
 
 void Menus::removePizza(Pizza* aPizza) {
@@ -47,10 +48,6 @@ void Menus::removePizza(Pizza* aPizza) {
 			break;
 		}
 	}
-}
-
-
-Pizza* Menus::getCustomPizza(string aPizzaName) {
-	throw "Menus::getCustomPizza not implemented yet.";
+	notifyObservers("Removed a new pizza.");
 }
 

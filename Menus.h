@@ -24,7 +24,7 @@ public:
 
 	virtual void notifyObservers(string aMessage) = 0;
 
-	Pizza *getCustomPizza(string aPizzaName);
+	virtual string toString() = 0;
 };
 
 #endif

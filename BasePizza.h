@@ -10,16 +10,20 @@ class BasePizza: public Pizza
 	private: 
 	//Changed to a pointer to PizzaComponent to allow for dynamic allocation of toppings
 		PizzaComponent* toppings;
+		Pizza* decorator;
 		string name;
 	
 
-	public: 
+	public:
+		BasePizza(string name, PizzaComponent *toppings);
+
+		virtual ~BasePizza();
+
 		virtual double getPrice() const override;
 
 		virtual string getName()const override;
 
-		BasePizza(string name, PizzaComponent* toppings);
-		virtual ~BasePizza();
+
 		virtual Pizza* clone() const override;
 };
 

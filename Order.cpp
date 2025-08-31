@@ -6,7 +6,16 @@
 
 Order::Order(int discountStrategy) {
 	_pizzas = vector<Pizza*>();
-	setDiscountStrategy(discountStrategy);
+	switch (discountStrategy) {
+		case 1:
+			_discount=new FamilyDiscount();
+			break;
+		case 2:
+			_discount=new BulkDiscount(0.05, 8);
+			break;
+		default:
+			_discount=new RegularPrice();
+	}
 }
 
 Order::~Order() {
@@ -50,6 +59,7 @@ string Order::toString() {
 }
 
 void Order::setDiscountStrategy(int aDiscount) {
+	if (_discount!=nullptr) delete _discount;
 	switch (aDiscount) {
 		case 1:
 			_discount=new FamilyDiscount();

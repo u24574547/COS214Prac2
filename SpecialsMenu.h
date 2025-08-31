@@ -6,7 +6,11 @@
 class SpecialsMenu: public Menus
 {
 
-	public: void notifyObservers(string aMessage);
+	public:
+	SpecialsMenu();
+	~SpecialsMenu();
+	string toString();
+	void notifyObservers(string aMessage);
 };
 
 #endif

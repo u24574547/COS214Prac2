@@ -3,6 +3,8 @@
 #include "BulkDiscount.h"
 #include "FamilyDiscount.h"
 #include "RegularPrice.h"
+#include "OrderCreated.h"
+#include "OrderFinalised.h"
 
 Order::Order(int discountStrategy) {
 	_pizzas = vector<Pizza*>();
@@ -16,6 +18,7 @@ Order::Order(int discountStrategy) {
 		default:
 			_discount=new RegularPrice();
 	}
+	state = new OrderCreated();
 }
 
 Order::~Order() {
@@ -23,33 +26,39 @@ Order::~Order() {
 		delete _pizzas[i];
 	}
 	_pizzas.clear();
+	// added discount deletion
+	if(_discount != nullptr){
+		delete _discount;
+		_discount = nullptr;
+	}
 }
 
 void Order::addPizza(Pizza* aPizza) {
 	//make a clone.
-	_pizzas.push_back(aPizza->clone());
+	state->addPizza(this, aPizza);
 }
 
 void Order::removePizza(int aPizzaNo) {
-	Pizza* aPizza = _pizzas[aPizzaNo];
-	vector<Pizza*>::iterator it;
-	for (it = _pizzas.begin(); it != _pizzas.end(); ++it) {
-		if (*it==aPizza) {
-			delete aPizza;
-			aPizza = nullptr;
-			_pizzas.erase(it);
-			break;
-		}
-	}
+	// Pizza* aPizza = _pizzas[aPizzaNo];
+	// vector<Pizza*>::iterator it;
+	// for (it = _pizzas.begin(); it != _pizzas.end(); ++it) {
+	// 	if (*it==aPizza) {
+	// 		delete aPizza;
+	// 		aPizza = nullptr;
+	// 		_pizzas.erase(it);
+	// 		break;
+	// 	}
+	// }
+	state->removePizza(this, aPizzaNo);
 }
 
-string Order::toString() {
+string Order::toString() const{
 	string ans = "Pizzas: \n";
 	double totalPrice = 0.0;
-	vector<Pizza *>::iterator it;
-	for (it = _pizzas.begin(); it != _pizzas.end(); ++it) {
-		ans+=(*it.base())->toString()+"\n";
-		totalPrice+=(*it.base())->getPrice();
+	vector<Pizza *>::const_iterator it;
+	for (it = _pizzas.cbegin(); it != _pizzas.cend(); ++it) {
+		ans+=(*it)->toString()+"\n";
+		totalPrice+=(*it)->getPrice();
 	}
 
 	//ans+="Price before discount: "+to_string(totalPrice)+"\n";
@@ -59,16 +68,26 @@ string Order::toString() {
 }
 
 void Order::setDiscountStrategy(int aDiscount) {
-	if (_discount!=nullptr) delete _discount;
-	switch (aDiscount) {
-		case 1:
-			_discount=new FamilyDiscount();
-			break;
-		case 2:
-			_discount=new BulkDiscount(0.05, 8);
-			break;
-		default:
-			_discount=new RegularPrice();
-	}
+// 	if (_discount!=nullptr) delete _discount;
+// 	switch (aDiscount) {
+// 		case 1:
+// 			_discount=new FamilyDiscount();
+// 			break;
+// 		case 2:
+// 			_discount=new BulkDiscount(0.05, 8);
+// 			break;
+// 		default:
+// 			_discount=new RegularPrice();
+// 	}
+	state->applyDiscount(this, aDiscount);
+}
+
+void Order::setState(OrderState* newState) {
+    if (state == NULL) delete state;
+    state = newState;
+}
+
+std::string Order::getStateName() const {
+    return state->getStateName();
 }
 

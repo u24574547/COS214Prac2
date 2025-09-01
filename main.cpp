@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include "BasePizza.h"
 #include "ExtraCheese.h"
@@ -170,25 +171,65 @@ void orderDiscountTest() {
     order.setDiscountStrategy(2);
 }
 
+void orderStateTest() {
+    Order order;
+    cout << "Initial state: " << order.getStateName() << endl;
+
+    // Add first pizza (should transition to AddingPizzas)
+    Pizza* margherita = new BasePizza("Margherita", nullptr);
+    order.addPizza(margherita);
+    cout << "After adding Margherita: " << order.getStateName() << endl;
+    cout << order.toString() << endl;
+
+    // Add second pizza
+    ToppingGroup* reginaToppings = new ToppingGroup("Regina toppings");
+    reginaToppings->add(new Topping(10.0, "Mushroom"));
+    reginaToppings->add(new Topping(15.0, "Ham"));
+    Pizza* regina = new BasePizza("Regina", reginaToppings);
+    order.addPizza(regina);
+    cout << "After adding Regina: " << order.getStateName() << endl;
+    cout << order.toString() << endl;
+
+    // Remove first pizza
+    order.removePizza(0);
+    cout << "After removing first pizza: " << order.getStateName() << endl;
+    cout << order.toString() << endl;
+
+    // Apply discount (should transition to DiscountApplied)
+    order.setDiscountStrategy(1);
+    cout << "After applying FamilyDiscount: " << order.getStateName() << endl;
+    cout << order.toString() << endl;
+
+    // Try to add pizza after discount applied (should do nothing)
+    order.addPizza(new BasePizza("Hawaiian", nullptr));
+    cout << "After trying to add pizza in DiscountApplied: " << order.getStateName() << endl;
+    cout << order.toString() << endl;
+
+    // Try to remove pizza after discount applied (should do nothing)
+    order.removePizza(0);
+    cout << "After trying to remove pizza in DiscountApplied: " << order.getStateName() << endl;
+    cout << order.toString() << endl;
+
+    // Finalize order (should transition to OrderFinalized)
+    order.setDiscountStrategy(0);
+    cout << "After finalizing order: " << order.getStateName() << endl;
+    cout << order.toString() << endl;
+
+    // Try to add/remove pizza after finalised (should do nothing)
+    order.addPizza(new BasePizza("Test", nullptr));
+    order.removePizza(0);
+    cout << "After trying to add/remove pizza in OrderFinalized: " << order.getStateName() << endl;
+    cout << order.toString() << endl;
+}
+
 int main() {
-    /*
-     things to test:
-     Menus - Base Menu Functions, SpecialsMenu, PizzaMenu
-
-     Observer - Base Observer functions, Website, Customer
-
-     Pizza - basePizza, extraCheese, StuffedCrust
-
-     PizzaComponent - ToppingGroup, Topping
-
-     Order - DiscountStrategy, Bulk, Family, Regular
-    */
+    
     pizzaTest();
     toppingTest();
     decoratorTest();
     menuTest();
     observerTest();
     orderDiscountTest();
-
+    orderStateTest();
     return 0;
 }
